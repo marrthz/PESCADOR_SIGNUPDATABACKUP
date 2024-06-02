@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d9f65e7e7e.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="images/black.png">
+    <script src="https://kit.fontawesome.com/d9f65e7e7e.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d9f65e7e7e.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="images/black.png"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+      integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Authentication is Fun</title>
+    <style>
+     h4 {
+    color: white;
+      }
+      body {
+            background: linear-gradient(to right, rgb(6, 109, 109), 40%,  rgb(31, 1, 68));
+        }
+       
+  
+        /* Modify the background color */
+
+        .navbar-custom {
+            background-color: #1f1f1f;
+        }
+
+        /* Modify brand and text color */
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {
+            color: rgb(255, 255, 255);
+        }
+
+
+
+        .center {
+  display: 
+  block;
+  text-align: center;
+}
+
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: rgb(255, 255, 255);
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd;
+  margin: 0 4px;
+}
+
+.pagination a.active {
+  background-color: #b5a8eb;
+  color: white;
+  border: 1px solid #02495f;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.logo-center {
+    text-align: center;
+}
+h1 {
+    text-align: center;
+    color: white;
+
+}
+.card-title  {
+    color: white;
+    text-align: center;
+}
+.card-text {
+    font-size: smaller;
+}
+.card-body {
+    color: #1f1f1f;
+    
+}
+.card-desc {
+    font-size: smaller;
+    color: white;
+    text-align: center;
+}
+.card-img-top  {
+    width: 180px;
+    height: 250px;
+}
+.btn {
+      top:50%;
+      border:1px solid black;
+      border-radius: 8px; 
+      padding:10px;
+      color: white;
+      background-image: linear-gradient(to top, rgb(0, 63, 63), 40%, rgb(31, 1, 68) );
+      min-height:30px; 
+      min-width: 50px;
+      font-size: smaller;
+      display: grid; 
+     
+      }
+      .input-group {
+        width: 32rem;
+        margin: 0 auto;
+  
+      }
+      
+      h4 {
+        text-align: center;
+      }
+      .btn-menu {
+         top:50%;
+      border:1px solid black;
+      border-radius: 8px; 
+      padding:10px;
+      color: white;
+      background-image: linear-gradient(to top, rgb(0, 63, 63), 40%, rgb(31, 1, 68) );
+      min-height:30px; 
+      min-width: 50px;
+      font-size: smaller;
+      display: inline-block; 
+      }
+.modal-content {
+  background-color: #1f1f1f;
+}
+.modal-body {
+  color: white;
+}
+h5 {
+
+text-align: left;
+}
+.form-check {
+  text-align: left;
+}
+
+.button2 {
+      top:50%;
+      border:1px solid black;
+      border-radius: 8px; 
+      padding:10px;
+      color: white;
+      background-image: linear-gradient(to top, rgb(0, 63, 63), 40%, rgb(31, 1, 68) );
+      min-height:30px; 
+      min-width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="authForm">
+       <!-- Login -->
+  <section class="h-100 gradient-form">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card-rounded">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-7">
+  
+                  <div class="text-center">
+                    <img src="images/white-removebg-preview.png"
+                      style="width: 185px;" alt="logo">
+                    <h4 class="mt-1 mb-5 pb-1">Welcome to Moobi!</h4>
+                  </div>
+  
+                  <form>
+                    <p>Please login to your account</p>
+  
+                    <div data-mdb-input-init class="form-outline mb-4">
+                      <input type="email" placeholder="Email" id="userEmail" class="form-control"
+                        />
+                      <label class="form-label" for="form2Example11">Username</label>
+                    </div>
+  
+                    <div data-mdb-input-init class="form-outline mb-4">
+                      <input type="password" placeholder="Password" id="userPassword" class="form-control" />
+                      <label class="form-label" for="form2Example22">Password</label>
+                    </div>
+  
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button class= "button" data-mdb-ripple-init  type="button" id="signInButton" >Log
+                        in</button>
+                        <br>
+                      <a class="text-white" href="#!">Forgot password?</a>
+                    </div>
+  
+                    <div class="d-flex align-items-center justify-content-center pb-4">
+                      <p class="mb-0 me-2">Don't have an account?</p>
+                      <button class="button2" data-mdb-ripple-init  type="button" id="signUpButton">Create new</button>
+                    </div>
+  
+                  </form>
+  
+                </div>
+              </div>
+
+              <!-- Website Info-->
+              <div class="col-lg-6 d-flex align-items-center colorhint-gradient">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4">Watch a variety of moobis with us</h4>
+                  <p class="small mb-0">Are you in for some moobi bonding? Sit back and relax 
+                    as you enjoy a ton of moobis with just a click away!
+                    Sign up for Moobi now! :3</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    </div>
+
+    <div id="secretContent">
+      <!-- Navbar  -->
+    <nav class="navbar navbar-custom">
+      <a class="navbar-brand" href="#">
+          <img src="images/white-removebg-preview.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          MOOBI
+      </a>
+
+      
+
+      <div class="input-group rounded">
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <span class="input-group-text border-0" id="search-addon">
+          <i class="fas fa-search"></i>
+        </span>
+
+      
+      </div>
+
+      
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal1">
+  <i class="fa-solid fa-filter"></i>
+</button>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="myModal1">
+<div class="modal-dialog">
+  <div class="modal-content">
+
+    <!-- Modal body -->
+    <div class="modal-body">
+      <h2>LIST OF CATEGORIES</h2>
+      <div class="container text-center">
+        <div class="row align-items-start">
+          <div class="col">
+            
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Action
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Comedy
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Horror
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Romance
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Drama
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Science Fiction
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Thriller
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Adventure
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Animation
+              </label>
+            </div>
+
+          </div>
+          <br>
+          <br>
+          <div class="col">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Documentary
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Musical
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Fiction
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Non-Fiction
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                NSFW
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Fantasy
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                RomCom
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Mystery
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+              <label class="form-check-label" for="flexCheckIndeterminate">
+                Television
+              </label>
+            </div>
+          </div>
+          </div>
+          
+    </div>
+
+    <!-- Modal footer -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+    </div>
+
+  </div>
+</div>
+</div>
+  </nav>
+</div>
+<br>
+<div  class="logo-center"  >
+  <img src="images/white-removebg-preview.png"
+    style="width: 185px;" alt="logo">
+</div>
+<h1>TRENDING NOW</h1>
+
+<h4>Moobi offers you the best and trending moobis for your movie day/night!</h4>
+<h4>JUST ONE CLICK AWAY :D</h4>
+
+<br>
+<br>
+<br>
+<br>
+
+<!-- page navigators -->
+<div class="center">
+  <div class="pagination">
+  <a href="#">&laquo;</a>
+  <a href="#" class="active">1</a>
+  <a href="#">2</a>
+  <a href="#">3</a>
+  <a href="#">4</a>
+  <a href="#">5</a>
+  <a href="#">6</a>
+  <a href="#">&raquo;</a>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<!-- movie contents -->
+
+ <!-- first row -->
+ <div class="container">
+  <div class="row align-items-start">
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+          <img src="images/love lies bleeding.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Love Lies Bleeding</h5>
+            <h6 class="card-desc">2024</h6>
+            <br>
+            <a href="#" class="btn btn-primary">Watch now</a>
+          </div>
+        </div>
+        <br>
+
+
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/miss congeniality.webp" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Miss Congeniality</h5>
+          <h6 class="card-desc">2000</h6>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/jologs.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Jologs</h5>
+          <h6 class="card-desc">2002</h6>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/real steel.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Real Steel</h5>
+          <h6 class="card-desc">2011</h6>
+          <br>
+          <br>  
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/pearl.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pearl</h5>
+          <h6 class="card-desc">2022</h6>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/death becomes her.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Death Becomes Her</h5>
+          <h6 class="card-desc">1992</h6>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+<br>
+
+<!-- second row -->
+  <div class="row align-items-start">
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/shrek.webp" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Shrek</h5>
+          <h6 class="card-desc">2001</h6>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/white chicks.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">White Chicks</h5>
+          <h6 class="card-desc">2004</h6>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/linda.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Linda Linda LInda</h5>
+          <h6 class="card-desc">2005</h6>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/RED WHITE AND ROYAL bLUE.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Red, White & Royal Blue</h5>
+          <h6 class="card-desc">2023</h6>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/platform.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">The PLatform</h5>
+          <h6 class="card-desc">2019</h6>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/moana.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Moana</h5>
+          <h6 class="card-desc">2016</h6>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <br>
+  <!-- third row -->
+
+  <div class="row align-items-start">
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/renaissance a flim by beyonce.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Renaissance: A Flim by Beyoncé</h5>
+          <h6 class="card-desc">2023</h6>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/SPIRIT STALLION OF THE CIMARRON.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Spirit: Stallion of the Cimarron</h5>
+          <h6 class="card-desc">2002</h6>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/tbird at ako.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">T-Bird at Ako</h5>
+          <h6 class="card-desc">1982</h6>
+          <br>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/Birtney.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Britney Spears: Life from Las Vegas</h5>
+          <h6 class="card-desc">2001</h6>
+          <br>
+          
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/barbie in a mermaid tale.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Barbie in a Mermaid Tale</h5>
+          <h6 class="card-desc">2010</h6>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 11.4rem;">
+        <img src="images/the handmaidem.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">The Handmaiden</h5>
+          <h6 class="card-desc">2016</h6>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary">Watch now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <footer class="footer">
+    <p class="text-center .bg-info"
+    style="height: 100px; font-size: medium;">
+    Moobi 2024
+    <br>
+    <br>
+   
+
+    <button class="button2" data-mdb-ripple-init id="signOutButton"   >Sign Out</button>
+    
+    </footer>
+
+      
+    </div>
+
+    <script type="module">
+      //Update the below URL with the appropriate version if necessary.
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        onAuthStateChanged,
+        signOut,
+        //Update the below URL with the appropriate version if necessary.
+      } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
+      // INSERT YOUR FIREBASE CONFIG OBJECT HERE
+      const firebaseConfig = {
+  apiKey: "AIzaSyCsUiCpdq1jnJjXs7dzzanzXqKIg5_PyUM",
+  authDomain: "auth-1f559.firebaseapp.com",
+  projectId: "auth-1f559",
+  storageBucket: "auth-1f559.appspot.com",
+  messagingSenderId: "307789977639",
+  appId: "1:307789977639:web:d9f74f6635cb3019e41602"
+};
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      const userEmail = document.querySelector("#userEmail");
+      const userPassword = document.querySelector("#userPassword");
+      const authForm = document.querySelector("#authForm");
+      const secretContent = document.querySelector("#secretContent");
+      const signUpButton = document.querySelector("#signUpButton");
+      const signInButton = document.querySelector("#signInButton");
+      const signOutButton = document.querySelector("#signOutButton");
+
+      secretContent.style.display = "none";
+
+      const userSignUp = async () => {
+        const signUpEmail = userEmail.value;
+        const signUpPassword = userPassword.value;
+        createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            console.log(user);
+            Swal.fire("Your Account is succesfully created!");
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode + errorMessage);
+          });
+      };
+
+      const userSignIn = async () => {
+        const signInEmail = userEmail.value;
+        const signInPassword = userPassword.value;
+        signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            Swal.fire("You have signed in successfully!");
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode + errorMessage);
+          });
+      };
+
+      const checkAuthState = async () => {
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            authForm.style.display = "none";
+            secretContent.style.display = "block";
+          } else {
+            authForm.style.display = "block";
+            secretContent.style.display = "none";
+          }
+        });
+      };
+
+      const userSignOut = async () => {
+        await signOut(auth);
+        Swal.fire("User Logout");
+      };
+      
+
+      checkAuthState();
+
+      signUpButton.addEventListener("click", userSignUp);
+      signInButton.addEventListener("click", userSignIn);
+      signOutButton.addEventListener("click", userSignOut);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
